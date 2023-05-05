@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>todolist</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="box" id="heading">
+   <h1><%=listTitle%></h1>
+   </div>
+   <div class="box">
+    <%newListItems.forEach(function(item){%>
+        <form action="/delete" method="post">
+        <div class="item">
+            <input type="checkbox" name="checkbox" value="<%=item._id%>" onchange="this.form.submit()">
+        <p><%=item.name%></p>
+        </div>
+        </form>
+
+   <% })%>
+   <form class="item"action="/"method="post">
+    <input type="text" name="newItem"placeholder="New item">
+<button type="submit" name="list" value="<%= listTitle %>">+</button>
+   </form>
+   </div>
+   <footer>
+    <h4>copyright 2023 @todolistapp</h4>
+   </footer>
+</body>
+</html>
